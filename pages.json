@@ -1,0 +1,38 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/describe/describe",
+			"style": {
+				"navigationBarTitleText": "保底抽佣意义"
+			}
+		},
+		{
+			"path": "pages/desc/describe",
+			"style": {
+				"navigationBarTitleText": "保底抽佣意义"
+			}
+		},
+		{
+			"path": "pages/step/step",
+			"style": {
+				"navigationBarTitleText": "商户保底线获取"
+			}
+		},
+		{
+			"path": "pages/compute/compute",
+			"style": {
+				"navigationBarTitleText": "计算器"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationStyle":"custom",
+		"navigationBarTextStyle": "white"
+	}
+}

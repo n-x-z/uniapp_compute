@@ -1,0 +1,211 @@
+page {
+	background-color: var(--white);
+}
+.container{
+	width: 100%;
+	height: 100vh;
+}
+.login-logo{
+	width: 180rpx;
+	display: block;
+	margin: 30rpx auto;
+	height: 180rpx;
+	color: #fff;
+	font-weight: bold;
+	line-height: 90rpx;
+	    text-align: center;
+		font-size: 70rpx;
+	background: #B91B21;
+}
+button::after { border: none
+}
+input:-webkit-autofill {
+    box-shadow: 0 0 0 1000px #fff inset;
+    -webkit-text-fill-color: #fff;
+}
+input:-internal-autofill-selected{
+	box-shadow: 0 0 0 1000px #fff inset;
+	-webkit-text-fill-color: #fff;
+}
+input{
+	height: 5vh;
+	line-height: 5vh;
+	font-size:28rpx;
+}
+.login-input{
+	font-size:28rpx;
+}
+/* login图标样式 */
+.logoIcon {
+	width: 180rpx;
+	display: block;
+	margin: 30rpx auto;
+}
+/* 登录方式样式 */
+.loginMode{
+	height: 10vh;
+	line-height: 10vh;
+	font-size: 32rpx;
+	display: flex;
+	justify-content: space-around;
+}
+.loginMode text{
+	width: 50%;
+	text-align: center;
+}
+.activeSty{
+	color: #000000;
+	border-bottom: 1px solid #000000;
+	transition: all 0.3s ease-in-out 0s;
+}
+.endSty{
+	color: var(--viceFontcolor);
+	border-bottom: 1px solid #EEEEEE;
+	transition: all 0.3s ease-in-out 0s;
+}
+/* 身份图标样式 */
+.cu-form-group {
+	/* min-height: 120rpx; */
+	padding:20rpx 0;
+	border-bottom:1px solid #f5f5f5;
+}
+.cu-form-group .typeImg {
+	margin-left: 5px;
+	margin-right: 10px;
+	margin-top:10px;
+	width: 20px;
+	height: 20px;
+	object-fit: contain;
+	color: #000000
+}
+.identityIcon{
+	width: 46rpx;
+	height: 46rpx;
+	object-fit: contain;
+	margin-right: 50rpx;
+}
+/* 输入手机号样式 */
+.bindingMobilePhone{
+	width: 90%;
+	padding: 3vh 0vh;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #EDEDED;
+}
+/* 输入密码或验证码样式 */
+.passwordView{
+	width: 90%;
+	padding: 3vh 0vh;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #EDEDED;
+}
+.passwordView input{
+	width: 90vw;
+}
+.verificationCode{
+	width: 90%;
+	padding: 3vh 0vh;
+	display: flex;
+	border-bottom: 1px solid #EDEDED;
+}
+.flex1{flex:1;}
+.flex{display: flex;}
+.wpd100{width:100% !important;}
+.nextStepBtn{
+		display:inline-block;
+		width: 80%;
+		height:6vh;
+		line-height: 6vh;
+		color: #FFFFFF;
+		/* margin-bottom: 6vh; */
+		margin-top: 5vh;
+		border-radius: var(--webBorder);
+		background:  #B91B21;
+}
+.padding-xl {
+	padding:200rpx 50rpx;
+}
+.verificationCode input{
+	width: 50vw;
+}
+.verificationCode text{
+	line-height: 5vh;
+	color: #000000;
+	text-align: right;
+}
+.send{
+	margin-top:8px;
+	color: #000000;
+}
+.iblock{
+	margin-top:8px;
+}
+/* 跳转按钮框样式 */
+.registerContainer{
+	width: 100%;
+	height: 3.8vh;
+	color: #909090;
+	margin: 50rpx auto 100rpx;
+	display: flex;
+	justify-content: space-around;
+}
+/* 登录方式 */
+.signType {
+}
+.signType .title {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 80rpx;
+}
+.signType .title::before {
+	content: "使用其他登录方式";
+	background-color: var(--white);
+	padding: 0 30rpx;
+	color: var(--viceFontcolor);
+	text-align: center;
+	position: relative;
+	z-index: 2;
+}
+.signType .title::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	background-color: #EEEEEE;
+	left: 0;
+	top: calc((100% - 1px) / 2);
+	z-index: 1;
+}
+.type_view {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.type_view .cu-item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	font-size: 24rpx;
+	color: var(--viceFontcolor);
+}
+.type_view .cu-item image {
+	width: 78rpx;
+	height: 78rpx;
+	margin-bottom: 10rpx;
+}
+.login-input {
+	outline: none;
+	padding: 0;
+	border: 0;
+	flex: 1;
+	height: 5vh;
+	line-height: 5vh;
+}
+.c-themeColor {
+	color: var(--webColor);
+}
+

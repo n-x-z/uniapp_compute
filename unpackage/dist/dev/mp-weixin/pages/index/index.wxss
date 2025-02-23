@@ -1,0 +1,194 @@
+
+.container.data-v-57280228{position: relative;}
+.back-img.data-v-57280228{
+	width: 100%;
+	height: 385rpx;
+	display: block;
+}
+.content.data-v-57280228{
+	position: absolute;
+	top: 0px;
+	width: 100%;
+}
+/* 头部 */
+.index-header.data-v-57280228{
+	/* margin: 0px 30rpx; */
+	position: relative;
+}
+.header-title.data-v-57280228{
+	text-align: center;
+}
+.header-title-img.data-v-57280228{
+	width: 226rpx;
+	height: 44rpx;
+	/* background: url("../../static/LOGO.svg") no-repeat;
+	background-size: 100% 100%; */
+	/* margin: 60rpx auto 30rpx; */
+}
+.header-language.data-v-57280228{
+	width: 120rpx;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	color: #ffffff;
+	font-size: 24rpx;
+	line-height: 44rpx;
+	text-align: center;
+}
+.header-language-box.data-v-57280228{
+	background: #F7F8FB;
+	z-index: 11;
+	position: relative;
+	color: #212121;
+	text-align: center;
+	border-radius: 4rpx;
+	padding: 10rpx 10rpx;
+}
+.header-language-item.data-v-57280228,.header-regionActive.data-v-57280228{
+	color: #3C61DF;
+}
+.header-region.data-v-57280228{
+	width: 120rpx;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	color: #ffffff;
+	font-size: 24rpx;
+	line-height: 44rpx;
+	text-align: center;
+}
+.header-count.data-v-57280228{
+	
+	 /* height: 300rpx; */
+	 /* width: 500rpx; */
+	 box-shadow: 0px 0px 30rpx rgba(0, 0, 0, 0.2);
+	 /* margin: 0rpx 30rpx; */
+	 z-index: 1;
+	width: 92%;
+	    /* margin-left: 15px; */
+	/* margin-top: 30rpx; */
+	background: rgba(255,255,255,0.71);
+	box-shadow: 0px 4rpx 20rpx 0px rgba(27,114,240,0.24);
+	border-radius: 14rpx;
+	border-image: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)) 1 1;
+	-webkit-backdrop-filter: blur(11px);
+	        backdrop-filter: blur(11px);
+	/* margin: 0px 0px 50rpx 0px; */
+}
+.header-content.data-v-57280228{
+	padding: 50rpx 0rpx 50rpx 0rpx;
+}
+.data-currency.data-v-57280228{
+	font-size: 26rpx;
+	color: #212121;
+	opacity: .6;
+	display: flex;
+	justify-content: flex-end;
+	padding-right: 20rpx;
+	padding-bottom: 15rpx;
+}
+.data-name.data-v-57280228{
+	font-size: 24rpx;
+	line-height: 32rpx;
+	color: #212121;
+	font-weight: 400;
+	opacity: .6;
+}
+.data-month-name.data-v-57280228{
+	text-align: left;
+	margin-bottom: 20rpx;
+	font-size: 28rpx;
+	padding-left: 40px;
+}
+.data-month-num.data-v-57280228{
+	font-size: 80rpx;
+	line-height: 60rpx;
+	color: #212121;
+	padding-left: 40px;
+	text-align: left;
+}
+.data-count.data-v-57280228{margin-top: 88rpx;justify-content: space-around;}
+.data-list.data-v-57280228{text-align: center;margin: 0;}
+.list-data-num.data-v-57280228{
+	font-size: 36rpx;
+	line-height: 28rpx;
+	color: #212121;
+	margin-top: 13rpx;
+}
+/* 头部 end */
+/* 列表 */
+.menu.data-v-57280228{
+	margin-top: 30rpx;
+	padding: 0px 30rpx;
+}
+.menu-list.data-v-57280228{
+	width: 50%;
+	/* background: rgba(255,255,255,0.98); */
+	/* box-shadow: 0px 1rpx 11rpx 0px rgba(176,204,241,0.6); */
+	/* border-radius: 14rpx; */
+	/* margin-bottom: 20rpx; */
+	padding-top: 49rpx;
+	padding-bottom: 52rpx;
+}
+.menu-list-left.data-v-57280228{
+	border-left: 1px solid #f1f1f1;
+}
+.menu-list-bottom.data-v-57280228{
+	border-bottom: 1px solid #f1f1f1;
+}
+.menu-list-img.data-v-57280228{
+	display: block;
+	width: 125rpx;
+	height: 125rpx;
+	margin: 0 auto 20rpx;
+}
+.menu-list-title.data-v-57280228{
+	text-align: center;
+	font-size: 28rpx;
+	line-height: 40rpx; 
+	color: #212121;
+	font-weight: 500;
+	margin-bottom: 14rpx;
+}
+.menu-list-title1.data-v-57280228{
+	font-size: 20rpx;
+	line-height: 23rpx;
+	color: #000;
+	opacity: .3;
+	text-align: center;
+}
+.menu-list-title2.data-v-57280228{
+	font-size: 20rpx;
+	line-height: 23rpx;
+	color: #d89039;
+	text-align: center;
+}
+/* 列表 end */
+.swiper-block.data-v-57280228 {
+  height: 500rpx;
+  width: 100%;
+}
+.swiper-item.data-v-57280228 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: unset;
+  height: 400rpx;
+  padding: 20rpx 0rpx 50rpx 20rpx;
+}
+.active.data-v-57280228 {
+  -webkit-transform: scale(1.14);
+          transform: scale(1.14);
+  transition: all 0.2s ease-in 0s;
+  z-index: 20;
+}
+.chart-arcbar.data-v-57280228 {
+	width: 150rpx;
+	height: 150rpx;
+	margin: 0 20rpx;
+	    position: absolute;
+	    right: 0;
+	    top: 20px;
+}
+
