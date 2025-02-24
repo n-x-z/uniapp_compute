@@ -101,18 +101,17 @@
 		height: 40px;
 	}
 	.step-li{
-		width: calc(50% - 20px);
-		height: 330px;
+		width: calc(50% - 10px);
+		/* height: 330px; */
 		float: left;
 		font-size: 24rpx;
 		margin-top: 30px;
-		padding: 10px;
+		padding: 5px;
 	}
 	.step-img{
 		width: 100%;
-		height: 300px;
+		height: auto;
 		border-radius: 10px;
-		border: 1px solid #df533b;
 	}
     .back{
     	color: #fff;
@@ -140,9 +139,9 @@
 		background: #0196ff;
 	}
 	.border-red{
-		border: 1px solid #EF4135;
+		/* border: 1px solid #EF4135; */
 	}
 	.border-blue{
-		border: 1px solid #0196ff;
+		/* border: 1px solid #0196ff; */
 	}
 </style>

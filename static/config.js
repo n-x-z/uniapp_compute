@@ -1,6 +1,14 @@
 import headerBg from '@/static/images/header-bg.jpeg'
 import logo from '@/static/images/logo.png'
 import homeImg from '@/static/images/home-img.png'
+import mt1 from '@/static/images/mt1.jpg'
+import mt2 from '@/static/images/mt2.jpg'
+import mt3 from '@/static/images/mt3.jpg'
+import el1 from '@/static/images/el1.jpg'
+import el3 from '@/static/images/el3.jpg'
+import el4 from '@/static/images/el4.jpg'
+import img1 from '@/static/images/img1.jpg'
+import img2 from '@/static/images/img2.jpg'
 
 var config={
 	homeInfo: {
@@ -17,18 +25,18 @@ var config={
 			{
 				title: '美团保底线/抽佣比信息获取途径',
 			    step: [
-					{title: ['第一步:点击“我的”', '第二步:点击“配送设置”'], img: headerBg},
-					{title: ['第三步:点击“美团专送-升级版介绍”'], img:''},
-					{title: ['第四步:查看信息'], img:''},
+					{title: ['第一步:点击“我的”', '第二步:点击“配送设置”'], img: mt1},
+					{title: ['第三步:点击“美团专送-升级版介绍”'], img:mt2},
+					{title: ['第四步:查看信息'], img:mt3},
 				],
 			},
 			{
 				title: '饿了么保底线/抽佣比信息获取途径', 
 				step: [
-					{title: ['第一步:点击管理', '第二步:点击全部应用'], img:''},
-					{title: ['第三步:点击配送服务下合作方案'], img:''},
-					{title: ['第四步:点击生效中'], img:''},
-					{title: ['第五步:查看信息'], img:''},
+					{title: ['第一步:点击管理', '第二步:点击全部应用'], img:el1},
+					{title: ['第三步:点击配送服务下合作方案'], img:el1},
+					{title: ['第四步:点击生效中'], img:el3},
+					{title: ['第五步:查看信息'], img:el4},
 				]
 			}
 		],
@@ -77,9 +85,9 @@ var config={
 		tolinklook: '保底抽佣意义?',
 		tolinkget: '商户保底线获取',
 		commissionTitle: '保底抽拥信息',
-		commissionRatio: '抽拥比例',
-		floors: '保底金额',
-		deliveryPrice: '饮料外卖价格',
+		commissionRatio: '抽拥比例(%)',
+		floors: '保底金额(元)',
+		deliveryPrice: '饮料外卖价格(元)',
 		clear: '清空',
 		compute: '计算',
 		guaranteedCommissionLine: '平台保底抽佣线',
@@ -90,8 +98,8 @@ var config={
 		modalTip: {
 			title: '券后优惠价查询指引',
 			list: [
-				{title: '点击加入购物',img: headerBg,},
-				{title: '查看券后价',img: headerBg,}
+				{title: '点击加入购物',img: img1,},
+				{title: '查看券后价',img: img2,}
 			]
 		}
 	}
