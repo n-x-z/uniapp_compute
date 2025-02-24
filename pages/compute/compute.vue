@@ -206,7 +206,7 @@
 			   }
 			   
 			   
-				// 保底抽佣线 = 抽佣比例 / 保底金额
+				// 保底抽佣线 = 保底金额 / 抽佣比例
 				this.computeData.commissionLine = ( Number(this.computeData.floors) / (Number(this.computeData.commissionRatio)/100) ).toFixed(2)
 				// 保底抽佣金额 = 保底金额 + 饮料外卖价格
 				this.computeData.commissionPrice = (Number(this.computeData.floors) + Number(this.computeData.deliveryPrice)).toFixed(2)

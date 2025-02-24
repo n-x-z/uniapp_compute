@@ -5,6 +5,7 @@ import mt1 from '@/static/images/mt1.jpg'
 import mt2 from '@/static/images/mt2.jpg'
 import mt3 from '@/static/images/mt3.jpg'
 import el1 from '@/static/images/el1.jpg'
+import el2 from '@/static/images/el2.jpg'
 import el3 from '@/static/images/el3.jpg'
 import el4 from '@/static/images/el4.jpg'
 import img1 from '@/static/images/img1.jpg'
@@ -34,7 +35,7 @@ var config={
 				title: '饿了么保底线/抽佣比信息获取途径', 
 				step: [
 					{title: ['第一步:点击管理', '第二步:点击全部应用'], img:el1},
-					{title: ['第三步:点击配送服务下合作方案'], img:el1},
+					{title: ['第三步:点击配送服务下合作方案'], img:el2},
 					{title: ['第四步:点击生效中'], img:el3},
 					{title: ['第五步:查看信息'], img:el4},
 				]
