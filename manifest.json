@@ -17,7 +17,9 @@
             "delay" : 0
         },
         /* 模块配置 */
-        "modules" : {},
+        "modules" : {
+            "VideoPlayer" : {}
+        },
         /* 应用发布信息 */
         "distribute" : {
             /* android打包配置 */
@@ -108,30 +110,21 @@
     "h5" : {
         "title" : "",
         "router" : {
-            "encodeURI" : false,
-            "mode" : "hash",
-            "base" : "/h5/"
+            "mode" : "hash"
         },
         "devServer" : {
             "https" : false,
             "port" : ""
         },
         "sdkConfigs" : {
-            "maps" : {
-                "qqmap" : {
-                    "key" : "CIQBZ-GUF63-E7J3X-YSKZ7-3DMU3-ARFWT"
-                }
-            }
+            "maps" : {}
         },
         "optimization" : {
             "treeShaking" : {
-                "enable" : false
+                "enable" : true
             }
         },
         "template" : "",
-        "unipush" : {
-            "enable" : false
-        },
         "publicPath" : "./"
     }
 }

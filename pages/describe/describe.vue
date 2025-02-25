@@ -11,7 +11,8 @@
 				<view class="describe-desc" v-for="(item1, index1) in item.descList" :key="index1">
 				     {{item1}}
 				</view>
-				<video v-if="item.video" class="video" :src="item.video"></video>
+				<video type="video/mp4" autoplay="autoplay" controls="controls" loop
+						muted v-if="item.video" class="video" :src="videoSrc"></video>
 			</view>
 		</view>
 		
@@ -21,17 +22,20 @@
 <script>
 	const APP = getApp();
 	import config from '@/static/config.js';
+	// let videoSrc = "https://47.117.115.251:8080/uniapp-compute/static/video.mp4";
 	export default {
 		data() {
 			return {
-				describeInfo: config.describe
+				describeInfo: config.describe,
+				videoSrc: ''
 			}
 		},
 		onReady(){
 			console.log(config, 'config')
 		},
 		onShow() {
-
+			this.videoSrc = window.location.origin + '/uniapp-compute/' + this.describeInfo.list[3].video.split('./')[1]
+            
 		},
 		computed: {
 			

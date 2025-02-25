@@ -10,6 +10,7 @@ import el3 from '@/static/images/el3.jpg'
 import el4 from '@/static/images/el4.jpg'
 import img1 from '@/static/images/img1.jpg'
 import img2 from '@/static/images/img2.jpg'
+import video from './video.mp4'
 
 var config={
 	homeInfo: {
@@ -18,7 +19,7 @@ var config={
 		homeList:[
 			{title: '保底抽佣意义', desc: '了解外卖保底抽佣是什么?保底抽佣对我司意义?'},
 			{title: '商户保底线获取', desc: '了解商户保底线、抽佣比，信息获取途径'},
-			{title: '计算器', desc: '输入输入菜品、饮料等信息计算'}
+			{title: '计算器', desc: '输入菜品、饮料等信息计算'}
 		],
 	},
 	stepInfo: {
@@ -69,7 +70,7 @@ var config={
 			{
 				title: '保底抽佣意义视频讲解',
 				descList:[],
-				video: ''
+				video: video
 			},
 		]
 	},
@@ -99,7 +100,7 @@ var config={
 		modalTip: {
 			title: '券后优惠价查询指引',
 			list: [
-				{title: '点击加入购物',img: img1,},
+				{title: '点击加入购物车',img: img1,},
 				{title: '查看券后价',img: img2,}
 			]
 		}
