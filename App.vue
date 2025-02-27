@@ -25,6 +25,16 @@ export default {
   },
   onShow: function () {},
   onHide: function () {},
+  mounted() {
+      this.$nextTick(() => {
+        // 使用uni.setDocumentTitle来设置标题，如果要设置meta标签，可以使用下面的方法
+        const head = document.getElementsByTagName('head')[0];
+        const meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, initial-scale=1.0, user-scalable=no'; // 设置你需要的值
+        head.appendChild(meta);
+      });
+    },
   methods: {
 	   getAllToken(dataNew){
 		  

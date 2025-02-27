@@ -38,6 +38,10 @@
 					{{computeInfo.floors}}
 					<input class="uni-input" v-model="computeData.floors" type="digit" />
 				</view>
+				<view class="title-lev3">
+					{{computeInfo.startingPrice}}
+					<input class="uni-input" v-model="computeData.startingPrice" type="digit" />
+				</view>
 				<view class="line"></view>
 				<view class="title-lev3">
 					{{computeInfo.deliveryPrice}}
@@ -56,10 +60,10 @@
 					<img class="line-right" :src="line" />
 				</view>
 				<view class="title-lev3 up-line">
-					<text class="title-red" @click="onUp">
-					{{computeInfo.priceImprove}}
-					<img class="tip" :src="tip" />
-					<text v-if="isUp" class="perCapitaPriceTip">{{computeInfo.drinkAfterPrice}}-{{computeInfo.drinkBeforePrice}}</text>
+					<text class="title-red" @click="onUp('1')">
+						{{computeInfo.priceImprove}}
+						<img class="tip" :src="tip" />
+					    <text v-if="isUp1" class="perCapitaPriceTip">{{computeInfo.drinkAfterPrice}}-{{computeInfo.drinkBeforePrice}}</text>
 					</text>
 					<view class="p-r">
 						<text class="up-bg">
@@ -68,21 +72,57 @@
 						<text class="title-red">{{computeData.priceImprove||'-'}}</text>
 					</view>
 				</view>
+			
 				<view class="title-lev3">
-					{{computeInfo.guaranteedCommissionLine}}
+					<text @click="onUp('2')">
+						{{computeInfo.guaranteedCommissionPrice}}
+						<img class="tip" :src="tip" />
+					    <text v-if="isUp2" class="perCapitaPriceTip">{{computeInfo.floors}}+{{computeInfo.startingPrice}}</text>
+					</text>
+					<text class="p-r">{{computeData.commissionPrice||'-'}}</text>
+				</view>
+				<view class="title-lev3">
+					<text @click="onUp('3')">
+						{{computeInfo.guaranteedCommissionLine}}
+						<img class="tip" :src="tip" />
+					    <text v-if="isUp3" class="perCapitaPriceTip">{{computeInfo.floors}}/{{computeInfo.commissionRatio}}</text>
+					</text>
 					<text class="p-r">{{computeData.commissionLine||'-'}}</text>
 				</view>
 				<view class="title-lev3">
-					{{computeInfo.guaranteedCommissionPrice}}
-					<text class="p-r">{{computeData.commissionPrice||'-'}}</text>
+					<text @click="onUp('4')">
+						{{computeInfo.exceedCommissionPrice}}
+						<img class="tip" :src="tip" />
+					    <text v-if="isUp4" class="perCapitaPriceTip">({{computeInfo.perCapitaPrice}}+{{computeInfo.deliveryPrice}} -{{computeInfo.guaranteedCommissionLine}})*{{computeInfo.commissionRatio}}</text>
+					</text>
+					<text class="p-r">{{computeData.exceedCommissionPrice||'-'}}</text>
 				</view>
 				<view class="line"></view>
 				<view class="title-lev3">
-					<text class="drink">{{computeInfo.drinkBeforePrice}}</text>
+					<text class="drink" @click="onUp('5')">
+					  {{computeInfo.drinkBeforePrice}}
+					  <img class="tip" :src="tip" />
+					  <text v-if="isUp5 && computeData.perCapitaPrice > Number(computeData.floors/computeData.commissionRatio)" class="perCapitaPriceTip">
+					      {{computeInfo.perCapitaPrice}}-{{computeInfo.allPrice}}
+					  </text>
+					  <text v-if="isUp5 && computeData.perCapitaPrice <= Number(computeData.floors/computeData.commissionRatio)" class="perCapitaPriceTip">
+					     {{computeInfo.perCapitaPrice}}-{{computeInfo.floors}}-{{computeInfo.startingPrice}}
+					  </text>
+					</text>
 					<text class="p-r">{{computeData.drinkBeforePrice||'-'}}</text>
 				</view>
 				<view class="title-lev3">
-					<text class="drink">{{computeInfo.drinkAfterPrice}}</text>
+					<text class="drink" @click="onUp('6')">
+					   {{computeInfo.drinkAfterPrice}}
+					   <img class="tip" :src="tip" />
+					   <text v-if="isUp6 && computeData.perCapitaPrice > Number(computeData.floors/computeData.commissionRatio)" class="perCapitaPriceTip">
+					     
+						  {{computeInfo.perCapitaPrice}}+{{computeInfo.deliveryPrice}}-{{computeInfo.guaranteedCommissionPrice}}-{{computeInfo.exceedCommissionPrice}}
+					   </text>
+					   <text v-if="isUp6 && computeData.perCapitaPrice <= Number(computeData.floors/computeData.commissionRatio)" class="perCapitaPriceTip">
+					      {{computeInfo.perCapitaPrice}}+{{computeInfo.deliveryPrice}}-{{computeInfo.floors}}-{{computeInfo.startingPrice}}
+					   </text>
+					</text>
 					<text class="p-r">{{computeData.drinkAfterPrice||'-'}}</text>
 				</view>
 			</view>
@@ -128,16 +168,24 @@
 					perCapitaPrice: null,
 					commissionRatio: null,
 					floors: null,
+					startingPrice: null,
 					deliveryPrice: null,
 					commissionLine: null,
 					commissionPrice: null,
+					exceedCommissionPrice: null,
 					drinkBeforePrice: null,
 					drinkAfterPrice: null,
 					priceImprove: null
 				},
 				isShow: false,
 				isTip: false,
-				isUp: false,
+				index: '1',
+				isUp1: false,
+				isUp2: false,
+				isUp3: false,
+				isUp4: false,
+				isUp5: false,
+				isUp6: false,
 				visible: false
 			}
 		},
@@ -158,9 +206,11 @@
 					perCapitaPrice: null, // 人均价格
 					commissionRatio: null, // 抽佣比例
 					floors: null, // 保底金额
+					startingPrice: null, //距离起步价
 					deliveryPrice: null, // 饮料外卖价格
 					commissionLine: null,
 					commissionPrice: null,
+					exceedCommissionPrice: null,
 					drinkBeforePrice: null,
 					drinkAfterPrice: null,
 					priceImprove: null
@@ -195,6 +245,16 @@
 				   })
 				   return
 			   }
+			   if(!this.computeData.startingPrice ){
+				   uni.showToast({
+					 title: '请填写'+this.computeInfo.startingPrice,
+					 mask: true,
+					 icon: 'none',
+					 duration: 2500
+				   })
+				   return
+			   }
+			   
 			   if(!this.computeData.deliveryPrice){
 				   uni.showToast({
 					 title: '请填写'+this.computeInfo.deliveryPrice,
@@ -205,22 +265,45 @@
 				   return
 			   }
 			   
-			   
+			   var floors = Number(this.computeData.floors) //保底金额
+			   var commissionRatio = Number(Number(this.computeData.commissionRatio)/100) //抽佣比例
+			   var startingPrice = Number(this.computeData.startingPrice) //距离起步价
+			   var perCapitaPrice = Number(this.computeData.perCapitaPrice) // 优惠价格
+			   var deliveryPrice = Number(this.computeData.deliveryPrice) // 饮料外卖价格
+
 				// 保底抽佣线 = 保底金额 / 抽佣比例
-				this.computeData.commissionLine = ( Number(this.computeData.floors) / (Number(this.computeData.commissionRatio)/100) ).toFixed(2)
-				// 保底抽佣金额 = 保底金额 + 饮料外卖价格
-				this.computeData.commissionPrice = (Number(this.computeData.floors) + Number(this.computeData.deliveryPrice)).toFixed(2)
-				// 加饮料前客单价 = 人均价格
-				this.computeData.drinkBeforePrice = Number(this.computeData.perCapitaPrice)
-				//【可乐抽佣金额 = 未过保底抽佣现，不抽佣。如果过了抽佣现，可乐抽佣金额 = 可乐售价 * (抽佣比例 + 价格上涨比例)】
-				var price = 0
-				if(Number(this.computeData.perCapitaPrice) > Number(this.computeData.commissionLine)){
-					price = Number(this.computeData.perCapitaPrice) + Number(this.computeData.deliveryPrice) - (Number(this.computeData.deliveryPrice)*Number(this.computeData.commissionRatio/100))
+				this.computeData.commissionLine = (floors/commissionRatio).toFixed(2)
+				
+				//保底抽佣金额 = 保底金额+距离起步价
+				this.computeData.commissionPrice =  (floors + startingPrice).toFixed(2)
+
+                var drinkBeforePrice = 0
+				var drinkAfterPrice = 0
+				var exceedCommissionPrice = 0
+				// 过了保底线
+				if(perCapitaPrice > Number(floors/commissionRatio)){
+					// 超过保底抽佣线的佣金 = （优惠价格+饮料外卖价格-保底抽用线）*抽用比例
+					exceedCommissionPrice = (perCapitaPrice+deliveryPrice-(floors/commissionRatio))*commissionRatio
+					// 加饮料后客单价 = 优惠价格+饮料外卖售价-平台保底抽佣金额-超过保底抽佣线的佣金
+					
+					drinkAfterPrice = perCapitaPrice + deliveryPrice - (floors+startingPrice) - (exceedCommissionPrice > 0?exceedCommissionPrice:0)
+					// 加饮料前客单价 = 优惠价格 - 整单抽佣金额
+					// 整单抽佣金额 = 保底金额+距离收费起步价+（整单金额-平台保底抽佣线）*抽用比例
+					drinkBeforePrice = perCapitaPrice - (floors+startingPrice+(perCapitaPrice-floors/commissionRatio)*commissionRatio)
 				} else {
-					price = Number(this.computeData.perCapitaPrice) + Number(this.computeData.deliveryPrice)
-				}
-				// 加饮料后客单价 = 人均价格 + 饮料售价 - 可乐抽佣金额
-				this.computeData.drinkAfterPrice = price.toFixed(2)
+					//加饮料前客单价 = 优惠价格-保底金额-距离收费起步价
+					drinkBeforePrice = perCapitaPrice-floors- startingPrice
+					// 加饮料后客单价 = 优惠价格+饮料外卖售价-保底金额-距离收费起步价
+					drinkAfterPrice = perCapitaPrice + deliveryPrice- floors- startingPrice
+				}			
+				
+	
+				//超过保底抽佣线的佣金
+				this.computeData.exceedCommissionPrice = exceedCommissionPrice > 0 ? exceedCommissionPrice.toFixed(2) :'未超过'
+				this.computeData.drinkBeforePrice = drinkBeforePrice.toFixed(2)
+				this.computeData.drinkAfterPrice = drinkAfterPrice.toFixed(2)
+				
+				
 				// 客单价提升 = 加饮料后客单价 - 加饮料前客单价
 				this.computeData.priceImprove = (Number(this.computeData.drinkAfterPrice) - Number(this.computeData.drinkBeforePrice)).toFixed(2)
 				this.isShow = true
@@ -244,8 +327,15 @@
 			   this.visible = true
 			   // this.isTip = !this.isTip
 		   },
-		   onUp(){
-		   		this.isUp = !this.isUp
+		   onUp(index){
+			    [1,2,3,4,5,6].forEach((item, num)=> {
+					if(Number(index) != (num+1)){
+						this[`isUp${num+1}`] = false
+					} else {
+						this[`isUp${index}`] = !this[`isUp${index}`]
+					}
+				})
+		   		
 		   },
 		   onclose(){
 			   this.visible = false
@@ -330,7 +420,7 @@
 		line-height: 30px;
 		font-weight: 400;
 	    position: relative;
-		margin-top: 14px;
+		margin-top: 15px;
 	}
     .line{
 		width: 100%;
@@ -451,9 +541,10 @@
 		position: absolute;
 		left:40px;
 		top: -25px;
+		line-height: 20px;
 		font-size: 22rpx;
 		background: #f1f1f1;
-		padding: 0px 10px;
+		padding: 5px 10px;
 		border-radius: 5px;
 		color: #999;
 	}

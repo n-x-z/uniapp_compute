@@ -1,8 +1,10 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/landingPage/landingPage",
-    "pages/SalesAnalysisNew/SalesAnalysisNew"
+    "pages/describe/describe",
+    "pages/desc/describe",
+    "pages/step/step",
+    "pages/compute/compute"
   ],
   "subPackages": [],
   "window": {

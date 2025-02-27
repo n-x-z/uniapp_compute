@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "uni-drawer": "/uni_modules/uni-drawer/components/uni-drawer/uni-drawer",
-    "uni-calendar": "/uni_modules/uni-calendar/components/uni-calendar/uni-calendar"
-  },
-  "component": true
-}
