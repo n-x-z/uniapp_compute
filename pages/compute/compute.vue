@@ -102,12 +102,13 @@
 					<text class="drink" @click="onUp('5')">
 					  {{computeInfo.drinkBeforePrice}}
 					  <img class="tip" :src="tip" />
-					  <text v-if="isUp5 && computeData.perCapitaPrice > Number(computeData.floors/computeData.commissionRatio)" class="perCapitaPriceTip">
-					      {{computeInfo.perCapitaPrice}}-{{computeInfo.allPrice}}
+					  <text v-if="isUp5" class="perCapitaPriceTip">
+					      <text v-if="isLine">{{computeInfo.perCapitaPrice}}-{{computeInfo.allPrice}}</text>
+						  <text v-else>
+						     {{computeInfo.perCapitaPrice}}-{{computeInfo.floors}}-{{computeInfo.startingPrice}}
+						  </text>
 					  </text>
-					  <text v-if="isUp5 && computeData.perCapitaPrice <= Number(computeData.floors/computeData.commissionRatio)" class="perCapitaPriceTip">
-					     {{computeInfo.perCapitaPrice}}-{{computeInfo.floors}}-{{computeInfo.startingPrice}}
-					  </text>
+					 
 					</text>
 					<text class="p-r">{{computeData.drinkBeforePrice||'-'}}</text>
 				</view>
@@ -115,13 +116,13 @@
 					<text class="drink" @click="onUp('6')">
 					   {{computeInfo.drinkAfterPrice}}
 					   <img class="tip" :src="tip" />
-					   <text v-if="isUp6 && computeData.perCapitaPrice > Number(computeData.floors/computeData.commissionRatio)" class="perCapitaPriceTip">
-					     
-						  {{computeInfo.perCapitaPrice}}+{{computeInfo.deliveryPrice}}-{{computeInfo.guaranteedCommissionPrice}}-{{computeInfo.exceedCommissionPrice}}
+					   <text v-if="isUp6" class="perCapitaPriceTip">
+					       <text v-if="isLine">{{computeInfo.perCapitaPrice}}+{{computeInfo.deliveryPrice}}-{{computeInfo.guaranteedCommissionPrice}}-{{computeInfo.exceedCommissionPrice}}</text>
+						   <text v-else>
+						      {{computeInfo.perCapitaPrice}}+{{computeInfo.deliveryPrice}}-{{computeInfo.floors}}-{{computeInfo.startingPrice}}
+						   </text>
 					   </text>
-					   <text v-if="isUp6 && computeData.perCapitaPrice <= Number(computeData.floors/computeData.commissionRatio)" class="perCapitaPriceTip">
-					      {{computeInfo.perCapitaPrice}}+{{computeInfo.deliveryPrice}}-{{computeInfo.floors}}-{{computeInfo.startingPrice}}
-					   </text>
+					   
 					</text>
 					<text class="p-r">{{computeData.drinkAfterPrice||'-'}}</text>
 				</view>
@@ -180,6 +181,7 @@
 				isShow: false,
 				isTip: false,
 				index: '1',
+				isLine: false,
 				isUp1: false,
 				isUp2: false,
 				isUp3: false,
@@ -280,8 +282,10 @@
                 var drinkBeforePrice = 0
 				var drinkAfterPrice = 0
 				var exceedCommissionPrice = 0
+				
 				// 过了保底线
-				if(perCapitaPrice > Number(floors/commissionRatio)){
+				if(Number(perCapitaPrice+deliveryPrice) > Number(floors/commissionRatio)){
+					this.isLine = true
 					// 超过保底抽佣线的佣金 = （优惠价格+饮料外卖价格-保底抽用线）*抽用比例
 					exceedCommissionPrice = (perCapitaPrice+deliveryPrice-(floors/commissionRatio))*commissionRatio
 					// 加饮料后客单价 = 优惠价格+饮料外卖售价-平台保底抽佣金额-超过保底抽佣线的佣金
@@ -291,13 +295,12 @@
 					// 整单抽佣金额 = 保底金额+距离收费起步价+（整单金额-平台保底抽佣线）*抽用比例
 					drinkBeforePrice = perCapitaPrice - (floors+startingPrice+(perCapitaPrice-floors/commissionRatio)*commissionRatio)
 				} else {
+					this.isLine = false
 					//加饮料前客单价 = 优惠价格-保底金额-距离收费起步价
 					drinkBeforePrice = perCapitaPrice-floors- startingPrice
 					// 加饮料后客单价 = 优惠价格+饮料外卖售价-保底金额-距离收费起步价
 					drinkAfterPrice = perCapitaPrice + deliveryPrice- floors- startingPrice
-				}			
-				
-	
+				}	
 				//超过保底抽佣线的佣金
 				this.computeData.exceedCommissionPrice = exceedCommissionPrice > 0 ? exceedCommissionPrice.toFixed(2) :'未超过'
 				this.computeData.drinkBeforePrice = drinkBeforePrice.toFixed(2)
@@ -540,7 +543,7 @@
 	.perCapitaPriceTip{
 		position: absolute;
 		left:40px;
-		top: -25px;
+		bottom: 25px;
 		line-height: 20px;
 		font-size: 22rpx;
 		background: #f1f1f1;

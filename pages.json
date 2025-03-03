@@ -13,12 +13,6 @@
 			}
 		},
 		{
-			"path": "pages/desc/describe",
-			"style": {
-				"navigationBarTitleText": "保底抽佣意义"
-			}
-		},
-		{
 			"path": "pages/step/step",
 			"style": {
 				"navigationBarTitleText": "商户保底线获取"
